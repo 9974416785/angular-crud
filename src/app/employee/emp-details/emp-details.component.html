@@ -1,1 +1,17 @@
-<p>emp-details works!</p>
+<div class="codeSection">
+  <button class="m-l-150" type="button" (click)="goBack()">Back</button>
+  <div *ngIf="empData" class="p-l-150">
+    <div class="singleRow">
+      Name: {{empData.employee_name}}
+    </div>
+    <div class="singleRow">
+      Salary: {{empData.employee_salary}}
+    </div>
+    <div class="singleRow">
+      Age: {{empData.employee_age}}
+    </div>
+  </div>
+</div>
+<div class="spinner_div" *ngIf="spinner">
+  <mat-spinner></mat-spinner>
+</div>

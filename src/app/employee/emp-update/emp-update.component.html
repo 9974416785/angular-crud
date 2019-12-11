@@ -1,1 +1,22 @@
-<p>emp-update works!</p>
+<div class="codeSection">
+  <div class="singleRow">
+    <div class="first">
+      <input type="text" name="empFullName" placeholder="Enter Name.." [(ngModel)]="empName">
+    </div>
+    <div class="second">
+      <input type="text" name="empSalary" placeholder="Enter Salary.." [(ngModel)]="empSal">
+    </div>
+  </div>
+
+  <div class="singleRow">
+    <div class="first">
+      <input type="text" name="employeeAge" placeholder="Enter Age.." [(ngModel)]="empAge">
+    </div>
+    <div class="second">
+      <button type="button" (click)="updateEmp()" [disabled]="!empName || !empSal || !empAge">Update Employee</button>
+    </div>
+  </div>
+</div>
+<div class="spinner_div" *ngIf="spinner">
+  <mat-spinner></mat-spinner>
+</div>

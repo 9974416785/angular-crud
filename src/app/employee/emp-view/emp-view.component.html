@@ -1,1 +1,31 @@
-<p>emp-view works!</p>
+<div class="codeSection">
+  <button class="m-l-150" type="button" (click)="getAllEmp()">Refresh Employee List</button>
+
+  <div>
+    <table>
+      <tr>
+        <th>#</th>
+        <th>Employee Name</th>
+        <th>Employee Age</th>
+        <th>Employee Salary</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let emp of allEmp; let i = index">
+        <td>{{i}}</td>
+        <td>{{emp.employee_name}}</td>
+        <td>{{emp.employee_age}}</td>
+        <td>{{emp.employee_salary}}</td>
+        <td>
+          <span class="action" (click)="viewEmp(emp.id)"><mat-icon class="blue">visibility</mat-icon> </span>
+          <span class="action" (click)="updateEmp(emp.id)"><mat-icon class="green">edit</mat-icon> </span>
+          <span class="action" (click)="deleteEmp(emp.id)"><mat-icon class="red">delete</mat-icon></span>
+        </td>
+      </tr>
+
+    </table>
+
+  </div>
+</div>
+<div class="spinner_div" *ngIf="spinner">
+  <mat-spinner></mat-spinner>
+</div>
