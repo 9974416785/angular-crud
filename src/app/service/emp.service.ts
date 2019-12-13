@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs/index";
+import {Observable, Subject} from "rxjs/index";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 
@@ -8,7 +8,12 @@ import {environment} from "../../environments/environment";
 })
 export class EmpService {
 
-  constructor(private http: HttpClient) { }
+  getSalary$: Observable<any>;
+  private salarySubject = new Subject<any>();
+
+  constructor(private http: HttpClient) {
+    this.getSalary$ = this.salarySubject.asObservable();
+  }
 
   getAllEmpList(): Observable<any> {
     return this.http.get(environment.baseUrl + '/employees');
@@ -28,6 +33,10 @@ export class EmpService {
 
   deleteEmp(id): Observable<any> {
     return this.http.delete(environment.baseUrl + '/delete/' + id);
+  }
+
+  setSalary(data) {
+    this.salarySubject.next(data);
   }
 
 }

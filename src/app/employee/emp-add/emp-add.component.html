@@ -1,10 +1,10 @@
 <div class="codeSection">
   <div class="singleRow">
     <div class="first">
-      <input type="text" name="empFullName" placeholder="Enter Name.." [(ngModel)]="empName">
+      <input type="text" name="empFullName" (keyup)="startEntering(empName)" placeholder="Enter Name.." [(ngModel)]="empName">
     </div>
     <div class="second">
-      <input type="text" name="empSalary" placeholder="Enter Salary.." [(ngModel)]="empSal">
+      <input type="text" name="empSalary" (keyup)="startEnteringSalary(empSal)" placeholder="Enter Salary.." [(ngModel)]="empSal">
     </div>
   </div>
 

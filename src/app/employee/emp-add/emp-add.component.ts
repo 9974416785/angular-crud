@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {EmpService} from "../../service/emp.service";
 import {HttpErrorResponse} from "@angular/common/http";
+import {SharingService} from "../../service/sharing.service";
 
 @Component({
   selector: 'app-emp-add',
@@ -13,9 +14,14 @@ export class EmpAddComponent implements OnInit {
   empSal: any;
   empAge: any;
   constructor(private empservice: EmpService,
-              private router: Router) { }
+              private router: Router,
+              private sharingService: SharingService) { }
 
   ngOnInit() {
+  }
+
+  startEntering(data) {
+    this.sharingService.setEmpName(data);
   }
 
   addEmp() {
@@ -34,6 +40,10 @@ export class EmpAddComponent implements OnInit {
 
     console.log(empPojo, 'empPojo');
 
+  }
+
+  startEnteringSalary(data) {
+    this.empservice.setSalary(data);
   }
 
 }

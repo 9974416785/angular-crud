@@ -11,6 +11,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {EmployeeModule} from "./employee/employee.module";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
   { path: '', component: EmpViewComponent },
@@ -22,7 +23,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
